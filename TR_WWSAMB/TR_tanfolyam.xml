@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<konferencia>
+	<cim>XML bevezetés</cim>
+	
+	<hallgatok>
+		<hallgato>
+			<nev>Nagy Anna</nev>
+			<lakcim> 3525, Miskolc Egyetemváros</lakcim>
+		</hallgato>
+	</hallgatok>
+	
+	<helyszin>Miskolc Egyetemváros, III. előadó</helyszin>
+	
+	<eloado>
+		<nev>Bednarik László</nev>
+		<adoszam>123456789</adoszam>
+		<lakcim>3525, Miskolc</lakcim>
+	</eloado>
+	
+	<datum>2020-09-20</datum>
+</konferencia>
