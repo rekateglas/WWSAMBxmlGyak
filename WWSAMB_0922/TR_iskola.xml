@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<iskola>
+
+	<tanar kod="1">
+		<nev>Mekk Elek</nev>
+		<szak>Ezermester</szak>
+	</tanar>
+	
+	<tanar kod="2">
+		<nev>Kis Béla</nev>
+		<szak>Tetőfedő</szak>
+	</tanar>
+
+	<tantargy tkod="1" oktato=""> 
+		<tnev>Barkácsolás</tnev>
+		<osztaly>2.a</osztaly>
+	</tantargy>
+	
+</iskola>
