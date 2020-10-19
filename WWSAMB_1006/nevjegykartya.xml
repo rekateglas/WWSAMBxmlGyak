@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<nevjegykartyak xmlns="https://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.w3schools.com nevjegykartya.xsd">
+    <nevjegykartya id="1">
+        <nev>Boldog Béla</nev>
+        <ceg>
+            <cim>
+                <iranyitoszam>3525</iranyitoszam>
+                <varos>Miskolc</varos>
+                <utca>Egyetemváros</utca>
+                <hazszam>1</hazszam>
+            </cim>
+            <nev>XY Kft.</nev>
+            <telefonszam korzet="46">123456</telefonszam>
+            <weblap>https://xy.hu</weblap>
+        </ceg>
+        <beosztas>vezető</beosztas>
+        <telefonszam korzet="40">654321</telefonszam>
+        <email>xy@kft.hu</email>
+    </nevjegykartya>
+
+    <nevjegykartya id="2">
+        <nev>Kis Pista</nev>
+        <ceg>
+            <cim>
+                <iranyitoszam>3525</iranyitoszam>
+                <varos>Miskolc</varos>
+                <utca>Egyetemváros</utca>
+                <hazszam>E/1</hazszam>
+            </cim>
+            <nev>ABC BT.</nev>
+            <telefonszam korzet="46">9876544</telefonszam>
+            <weblap>https://abcbt.hu</weblap>
+        </ceg>
+        <beosztas>HR munkatárs</beosztas>
+        <telefonszam korzet="1">1243874</telefonszam>
+        <email>abc@abcbt.hu</email>
+    </nevjegykartya>
+</nevjegykartyak>
