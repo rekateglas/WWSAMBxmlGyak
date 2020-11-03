@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<szemelyek xmlns="https://www.w3schools.com" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.w3schools.com szemelyek.xsd">
+
+	<szemely id="1">
+		<nev>Dora</nev>
+		<kor>29</kor>
+		<varos>Budapest</varos>
+	</szemely>
+	
+	<szemely id="2">
+		<nev>Kata</nev>
+		<varos>Miskolc</varos>
+	</szemely>
+	
+	<szemely id="3">
+		<nev>Attila</nev>
+		<kor>29</kor>
+		<varos>Budapest</varos>
+	</szemely>
+	
+</szemelyek>
