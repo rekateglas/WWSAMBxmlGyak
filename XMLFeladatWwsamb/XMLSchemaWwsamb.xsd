@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+<xs:element name="root">
+<xs:complexType>
+<xs:sequence>
+<xs:element name="besztel" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="BeszTelSzam">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idBeszállító">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<xs:element name="beszállítók" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idBeszállító">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="beszállító_neve">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="beszállítók_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="idBeszállító"/>
+		</xs:key>
+		<xs:keyref name="besztel_ForeignKey_1" refer="beszállítók_PrimaryKey_1">
+			<xs:selector xpath="besztel"/>
+			<xs:field xpath="idBeszállító"/>
+		</xs:keyref>
+		<xs:keyref name="nm_kapcsolat_ForeignKey_2" refer="beszállítók_PrimaryKey_1">
+			<xs:selector xpath="nm_kapcsolat"/>
+			<xs:field xpath="idBeszállító"/>
+		</xs:keyref>
+	</xs:element>
+<xs:element name="boltok" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="helye">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idBolt">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="dolgozók_száma">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="árucsere_dátuma" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idÁru" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="boltok_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="idBolt"/>
+		</xs:key>
+		<xs:keyref name="dolgozók_ForeignKey_1" refer="boltok_PrimaryKey_1">
+			<xs:selector xpath="dolgozók"/>
+			<xs:field xpath="idBolt"/>
+		</xs:keyref>
+	</xs:element>
+<xs:element name="dolgozók" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idDolgozó">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="név">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="szig_szám">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="munkaviszony_kezdete" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Utca">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Hsz">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Irsz">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idBolt">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="dolgozók_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="idDolgozó"/>
+		</xs:key>
+	</xs:element>
+<xs:element name="kategóriák" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idKategória">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kategória_neve">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kategóriába_tart_termékek_száma">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="kategóriák_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="idKategória"/>
+		</xs:key>
+		<xs:keyref name="áru_ForeignKey_1" refer="kategóriák_PrimaryKey_1">
+			<xs:selector xpath="áru"/>
+			<xs:field xpath="idKategória"/>
+		</xs:keyref>
+	</xs:element>
+<xs:element name="nm_kapcsolat" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="áru_összértéke">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="áru_mennyisége">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="beszállítás_ideje" nillable="true" minOccurs="0">
+					<xs:simpleType>
+						<xs:restriction base="xs:date">
+							<xs:minInclusive value="1000-01-01"/>
+							<xs:maxInclusive value="9999-12-31"/>
+							<xs:pattern value="\p{Nd}{4}-\p{Nd}{2}-\p{Nd}{2}"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idÁru">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idBeszállító">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+			</xs:sequence>
+		</xs:complexType>
+	</xs:element>
+<xs:element name="áru" maxOccurs="unbounded">
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="idÁru">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="név">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="Darabár">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="kategória">
+					<xs:simpleType>
+						<xs:restriction base="xs:string">
+							<xs:maxLength value="36"/>
+							<xs:minLength value="1"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				<xs:element name="idKategória">
+					<xs:simpleType>
+						<xs:restriction base="xs:int">
+							<xs:minInclusive value="-2147483648"/>
+							<xs:maxInclusive value="2147483647"/>
+						</xs:restriction>
+					</xs:simpleType>
+				</xs:element>
+				
+			</xs:sequence>
+		</xs:complexType>
+		<xs:key name="áru_PrimaryKey_1">
+			<xs:selector xpath="."/>
+			<xs:field xpath="idÁru"/>
+		</xs:key>
+		<xs:keyref name="boltok_ForeignKey_1" refer="áru_PrimaryKey_1">
+			<xs:selector xpath="boltok"/>
+			<xs:field xpath="idÁru"/>
+		</xs:keyref>
+		<xs:keyref name="nm_kapcsolat_ForeignKey_1" refer="áru_PrimaryKey_1">
+			<xs:selector xpath="nm_kapcsolat"/>
+			<xs:field xpath="idÁru"/>
+		</xs:keyref>
+	</xs:element>
+	</xs:sequence>
+	</xs:complexType>
+	</xs:element>
+</xs:schema>
